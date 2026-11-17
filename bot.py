@@ -3,8 +3,8 @@ import requests
 import json
 import os
 
-# مفتاح الـ API الخاص بـ Gemini
-API_KEY = "AQ.Ab8RN6IpU0fsGWqzDz1Hqw6lmLBtHuIzYHi6BoixhLl30aS2vw"
+# قراءة مفتاح الـ API بأمان من أسرار GitHub
+API_KEY = os.environ.get("GEMINI_API_KEY")
 
 print("جاري جلب كافة بيانات المؤشرات والتحليل الفني بدقة من TradingView...")
 handler = TA_Handler(
@@ -18,7 +18,6 @@ analysis = handler.get_analysis()
 summary = analysis.summary
 indicators = analysis.indicators
 
-# تجميع كافة المؤشرات والقيم لإرسالها بالكامل إلى جيمني
 all_indicators_text = ""
 for key, value in indicators.items():
     all_indicators_text += f"- {key}: {value}\n"
@@ -41,7 +40,7 @@ prompt = f"""
    - المبررات الفنية والرياضية المستندة حصرياً للأرقام الواردة في القائمة أعلاه.
 """
 
-url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key={API_KEY}"
+url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={API_KEY}"
 headers = {'Content-Type': 'application/json'}
 data = {
     "contents": [{
