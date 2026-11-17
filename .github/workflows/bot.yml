@@ -8,11 +8,6 @@ on:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
-    
-    # ربط المهمة تماماً بالبيئة التي أنشأتها لكي يقرأ السر منها بنجاح
-    environment: 
-      name: مفتاح واجهة برمجة تطبيقات GEMINI / التكوين البيئات
-      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
