@@ -3,7 +3,6 @@ import requests
 import json
 import os
 
-# قراءة مفتاح الـ API بأمان من أسرار GitHub
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
 print("جاري جلب كافة بيانات المؤشرات والتحليل الفني بدقة من TradingView...")
