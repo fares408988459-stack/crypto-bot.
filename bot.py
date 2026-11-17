@@ -1,9 +1,9 @@
 from tradingview_ta import TA_Handler, Interval
 import requests
 import json
-import os
 
-API_KEY = os.environ.get("GEMINI_API_KEY")
+# مفتاح Gemini الخاص بك مُدمج مباشرة هنا لضمان التشغيل الفوري
+API_KEY = "AQ.Ab8RN6Lr5z7TGftQz7GCeIBKgcxpCuhKljpzeCTjXufooBi0jA"
 
 print("جاري جلب كافة بيانات المؤشرات والتحليل الفني بدقة من TradingView...")
 handler = TA_Handler(
