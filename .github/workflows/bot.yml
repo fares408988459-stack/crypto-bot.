@@ -1,0 +1,26 @@
+name: Crypto Analysis Bot
+
+on:
+  schedule:
+    - cron: '0 * * * *' # يعمل تلقائياً كل ساعة في السحابة مجاناً
+  workflow_dispatch: # يتيح لك تشغيله يدوياً بضغطة زر متى شئت
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests tradingview-ta
+
+      - name: Run Trading Bot
+        run: |
+          python bot.py
